@@ -66,24 +66,13 @@ describe('mancala tests', () => {
     cy.contains('Success')
   })
 
-  it('starts a new game', () => {
+  it('starts a new game and then deletes it', () => {
     cy.signUp()
     cy.signIn()
     cy.get('.new-game').click()
     cy.contains('Success')
+    cy.get('.delete-button').click()
+    cy.get('.button-container > :nth-child(2)').click()
+    cy.contains('Success')
   })
-
-  // it('deletes a new game', () => {
-  //   cy.get('[href="#sign-in"]').click()
-  //   cy.get('#email').type('test@mancala.com')
-  //   cy.get('#password').type('a')
-  //   cy.get('[type="submit"]').click()
-  //   cy.contains('Success')
-  //   cy.contains('Welcome')
-  //   cy.get('.new-game').click()
-  //   cy.contains('Success')
-  //   cy.get('.delete-button').click()
-  //   cy.get('.button-container > :nth-child(2)').click()
-  //   cy.contains('Success')
-  // })
 })
