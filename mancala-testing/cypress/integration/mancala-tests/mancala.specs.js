@@ -2,8 +2,12 @@
 
 describe('mancala tests', () => {
   beforeEach(() => {
-    cy.cleanupApp()
     cy.visit('http://localhost:7165')
+    // cy.cleanupApp()
+  })
+
+  afterEach(() => {
+    cy.cleanupApp()
   })
 
   it('opens landing page', () => {
@@ -18,7 +22,7 @@ describe('mancala tests', () => {
     cy.get('[type="submit"]').click()
     cy.contains('Success')
     cy.get('[href="#sign-out"]').click()
-  })
+  })  
 
   it('signs in and signs out', () => {
     cy.signUp()
@@ -37,7 +41,6 @@ describe('mancala tests', () => {
   })
 
   it('changes password', () => {
-    // Signs Up/In
     cy.signUp()
     cy.signIn()
 
@@ -74,5 +77,45 @@ describe('mancala tests', () => {
     cy.get('.delete-button').click()
     cy.get('.button-container > :nth-child(2)').click()
     cy.contains('Success')
+  })
+
+  it('starts a new game, makes a move', () => {
+    cy.signUp()
+    cy.signIn()
+    cy.get('.new-game').click()
+    
+    // Makes a move
+    cy.get('#A5').click()
+    
+    // Checks board
+    cy.get('#A0').contains(4)
+    cy.get('#A1').contains(4)
+    cy.get('#A2').contains(4)
+    cy.get('#A3').contains(4)
+    cy.get('#A4').contains(4)
+    cy.get('#A5').contains(0)
+    cy.get('#AM').contains(1)
+    cy.get('#B0').contains(5)
+    cy.get('#B1').contains(5)
+    cy.get('#B2').contains(5)
+    cy.get('#B3').contains(4)
+    cy.get('#B3').contains(4)
+    cy.get('#B3').contains(4)
+    cy.get('#BM').contains(0)
+  })
+
+  it('views saved game in index', () => {
+    cy.signUp()
+    cy.signIn()
+    cy.get('.new-game').click()
+    
+    cy.makeFirstMove()
+
+    // View game in index
+    cy.get('[href="#games"]').click()
+    cy.get('.game-status-label').contains('IN PROGRESS')
+    cy.get('.game-preview').contains('Player B\'s Turn')
+    cy.get('.stones-a').contains('1')
+    cy.get('.stones-b').contains('0')
   })
 })
