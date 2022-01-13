@@ -104,19 +104,22 @@ describe('mancala tests', () => {
     cy.get('#BM').contains(0)
   })
 
-  it('views saved game in index', () => {
+  it.only('views saved game in index, opens it, and continues playing', () => {
     cy.signUp()
     cy.signIn()
     cy.get('.new-game').click()
     
     cy.makeFirstMove()
 
-    // View game in index
+    // Views game in index
     cy.get('[href="#games"]').click()
     cy.get('.game-status-label').contains('IN PROGRESS')
     cy.get('.game-preview').contains('Player B\'s Turn')
     cy.get('.stones-a').contains('1')
     cy.get('.stones-b').contains('0')
+
+    // Opens game
+    cy.get('.game-preview').click()
   })
 
   it('starts a game, tests non-valid moves, and completes the game', () => {
@@ -138,6 +141,7 @@ describe('mancala tests', () => {
     cy.get('#B1').contains('7')
     cy.get('.game-info').contains('Player A\'s Turn')
 
+    // Finishes the game
     cy.get('#A3').click()
     cy.get('#B4').click()
     cy.get('#A0').click()
@@ -171,7 +175,7 @@ describe('mancala tests', () => {
     cy.get('#B5').click()
     cy.get('#B4').click()
 
-    // Check for correct winner
+    // Checks for correct winner
     cy.get('#AM').contains(21)
     cy.get('#BM').contains(27)
     cy.get('.game-info').contains('Player B Wins')
