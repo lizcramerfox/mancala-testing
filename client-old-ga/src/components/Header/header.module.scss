@@ -1,0 +1,59 @@
+@import '../../variables';
+
+a {
+  color: $white-75;
+  padding: 0 1rem;
+  text-decoration: none;
+
+  &:hover {
+    color: $low-pop;
+  }
+}
+
+h1 {
+  color: $white-85;
+  font-family: $title-font;
+  font-size: 6rem;
+  font-weight: 200;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: block;
+}
+
+nav {
+  background: $gradient-colors-inverse;
+  box-shadow: $header-box-shadow;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: .5rem 1rem .75rem 1rem;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.title-block {
+  box-shadow: $header-box-shadow;
+  padding: .5rem 1.5rem;
+}
+
+.auth-links {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.game-links {
+  grid-area: 1 / 2 / 2 / 3;
+  text-align: right;
+}
+
+.user-welcome {
+  color: $bright-pop-75;
+  background: $gradient-colors;
+  padding: .5rem 2rem;
+  min-height: 1.25rem;
+  box-shadow: $header-box-shadow;
+}

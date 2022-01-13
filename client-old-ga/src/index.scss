@@ -1,0 +1,46 @@
+@import 'variables';
+
+$background-img: url('https://i.imgur.com/QoGVKoK.jpg');
+
+body {
+  background-color: $black-50;
+  background-image: $background-img;
+  color: $white-85;
+  font-family: $body-font;
+  margin: 0;
+}
+
+h4 {
+  color: $white-75;
+  font-family: $title-alt-font;
+  font-size: 2rem;  
+  font-weight: 200;
+  letter-spacing: .05rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  margin: 0 0 3rem;
+}
+
+input {
+  background: $form-input;
+  padding: .2rem .3rem;
+}
+
+p {
+  display: inline;
+}
+
+.button {
+  background: $button-background;
+  border: none;
+  box-shadow: $button-shadow-black;
+  font-family: $body-font;
+  padding: .1rem;
+  
+  &:hover {
+    box-shadow: $button-shadow-hover;
+  }
+}

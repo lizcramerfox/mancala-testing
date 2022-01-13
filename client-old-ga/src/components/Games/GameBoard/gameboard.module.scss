@@ -1,0 +1,117 @@
+@import '../../../variables';
+
+.gameboard {
+  background: $board-background;
+  box-shadow: $board-box-shadow;
+  border-radius: 1rem;
+  display: grid;
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem;
+  grid-template-columns: 1fr 70% 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  margin: 0 6rem;
+  padding: 2rem;
+}
+
+.mancalaA {
+  display: grid;
+  grid-area: 1 / 3 / 3 / 4;
+}
+
+.mancalaB {
+  display: grid;
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+.pocketsA {
+  grid-area: 2 / 2 / 3 / 3;
+  display: inline-grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+}
+
+.pocketsB {
+  grid-area: 1 / 2 / 2 / 3;
+  display: inline-grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+
+}
+
+.mancala {
+  box-sizing: border-box;
+  box-shadow: $pocket-box-shadow-invalid;
+  position: relative;
+
+}
+
+.pocket {
+  align-items: center;
+  align-self: center;
+  box-sizing: border-box;
+  border-radius: .5rem;
+  display: flex;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 7rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+  margin: 0 .5rem;
+}
+
+.player-a {
+  background: $pocket-background-a;
+}
+
+.player-b {
+  background: $pocket-background-b, $white-10;
+}
+
+.game-piece {
+  background: $game-piece-gradient;
+  background-color: $game-piece-color;
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  margin: .05rem;
+}
+
+.invalid {
+  box-shadow: $pocket-box-shadow-invalid;
+}
+
+.valid {
+  box-shadow: $pocket-box-shadow-valid;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    top: 1px;
+    left: 1px;
+  }
+}
+
+.stones-number {
+  color: $white-100;
+  font-size: 1rem;
+  font-weight: 800;
+  text-shadow: 0 0 .5rem $black-85;
+  opacity: .5;
+  position: absolute;
+}
+
+.winner {
+  box-shadow: $pocket-box-shadow-valid;
+}
+
+// #AM {
+//   grid-area: 1 / 8 / 3 / 9;
+// }
+
+// #BM {
+//   grid-area: 1 / 1 / 3 / 2;
+// }

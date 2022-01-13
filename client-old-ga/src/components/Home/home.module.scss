@@ -1,0 +1,34 @@
+@import '../../variables';
+
+.home {
+  display: flex;
+  padding: $container-element-padding;
+  justify-content: center;
+  
+  .big-button {
+    width: 30%;
+  }
+}
+  g 
+
+.big-button {
+  background: $big-button-background;
+  border: none;
+  box-shadow: $button-shadow-black, $button-shadow-white, $big-button-shadow-inset;
+  font-family: $title-alt-font;
+  font-size: 2rem;
+  border-radius: .5rem;
+  text-align: center;
+  text-shadow: $big-button-text-shadow;
+  margin: 2rem 1rem;
+  padding: 2rem 2rem;
+
+  &:hover {
+    background: $big-button-background-hover;
+    box-shadow: $button-shadow-black, $button-shadow-white, $big-button-shadow-inset;
+  }
+
+  &:active {
+    box-shadow: $button-shadow-white, $big-button-shadow-inset
+  }
+}
