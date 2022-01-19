@@ -1,0 +1,53 @@
+@import 'variables';
+
+$background-img: url('https://i.imgur.com/QoGVKoK.jpg');
+
+body {
+  background-image: $background-img;
+  color: $red-dark;
+  font-family: $font-body;
+  margin: 3rem;
+}
+
+nav {
+  background-color: $yellow;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+a {
+  padding: 1rem 2rem 0 0;
+}
+
+form {
+  color: white;
+  display: block;
+  margin: 1rem;
+}
+
+input {
+  display: block;
+  margin: .5rem 0;
+}
+
+h1 {
+  font-family: $font-title;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+}
+
+.main {
+  background-color: $red-light;
+  color: white;
+  padding: 2rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+.auth {
+  background-color: $orange;
+  color: white;
+  padding: 2rem;
+  margin: 1rem;
+}
