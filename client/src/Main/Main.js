@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Auth() {
+function Main() {
   return (
     <div className="main">
       <h3>Main Page Content</h3>
@@ -8,4 +8,4 @@ function Auth() {
   )
 }
 
-export default Auth
+export default Main
