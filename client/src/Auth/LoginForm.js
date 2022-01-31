@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
+import { signIn } from '../api/auth'
 
 function LoginForm() {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
   
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    alert(`Hello ${email}, your password is now ${password}`)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // alert(`Hello ${email}, your password is now ${password}`)
+    signIn(email, password)
+      // .then(res => console.log(res))
   }
 
   return (  
@@ -16,7 +19,7 @@ function LoginForm() {
         <input 
           type="text"
           value={email}
-          onChange={event => setEmail(event.target.value)}
+          onChange={e => setEmail(e.target.value)}
         />
       </label>
       <label>
@@ -24,7 +27,7 @@ function LoginForm() {
         <input 
           type="text"
           value={password}
-          onChange={event => setPassword(event.target.value)}
+          onChange={e => setPassword(e.target.value)}
         />
       </label>
       <input type="submit" value="Submit" />

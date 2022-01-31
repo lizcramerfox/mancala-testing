@@ -9,7 +9,7 @@ body {
   margin: 3rem;
 }
 
-nav {
+header {
   background-color: $yellow;
   padding: 2rem;
   margin: 1rem;
@@ -58,4 +58,12 @@ h1 {
   color: white;
   padding: 2rem;
   margin: 1rem;
+}
+
+.private {
+  background-color: black;
+  color: white;
+  padding: 2rem;
+  margin: 1rem;
+  text-align: center;
 }

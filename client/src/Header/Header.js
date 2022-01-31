@@ -7,9 +7,12 @@ const Header = ({ user }) => (
     <h1>Mancala</h1>
     <nav>
       <Link to="/">Home</Link>
-      <Link to="/auth">Login</Link>
+      <Link to="/login">Login</Link>
       <Link to="/main">Main Page</Link>
     </nav>
+    <h4>
+      { user ?  `Welcome, ${user}!` : `Not Logged In` }
+    </h4>
   </header>
 )
 
