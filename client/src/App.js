@@ -1,23 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './index.scss'
-import LoginForm from './Auth/LoginForm'
+import { AuthContext } from './Context/context'
+import AuthPage from './AuthPage/AuthPage'
 import Header from './Header/Header'
-import Main from './Main/Main'
 import Home from './Home/Home'
 
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const login = () => {
+    setIsLoggedIn(true)
+  }
+
+  const logout = () => {
+    setIsLoggedIn(false)
+  }
+
   return (
     <div>
-      <Header />
-    
-      <Routes>
-        <Route path="/main" element={ <Main /> } />
-        <Route path="/login" element={ <LoginForm /> } />
-      </Routes>
-
-      <Home />
+      <AuthContext.Provider
+        value={{
+          isLoggedIn: isLoggedIn,
+          login: login,
+          logout: logout
+        }}
+      >
+        <Header />
+        <Routes>
+          <Route path="/login" element={ <AuthPage /> } />
+        </Routes>
+        <Home />
+      </AuthContext.Provider>
+      
     </div>
   )
 }
