@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { AuthContext } from '../Context/context'
 import { signIn, signOut } from '../api/auth'
 
@@ -8,21 +8,23 @@ function AuthPage() {
   
   const authContext = useContext(AuthContext)
   const credentials = {email, password}
+  const user = authContext.user
 
   const loginHandler = (e) => {
     e.preventDefault()
-    authContext.login()
    
     signIn(credentials)
-      .then(res => console.log(res.data))
+      .then(res => authContext.login(res.data.user))
       .catch(err => console.log(`ERROR: ${err}`))
   }
 
-  const  logoutHandler = (e) => {
+  // START HERE - NOT UPDATING 'isLoggedIn' or 'user' on logout (but is logging out from API)?
+  const logoutHandler = (e) => {
     e.preventDefault()
-    authContext.logout()
-
-    // signOut()
+    signOut(user)
+      .then(authContext.logout(user))
+      .catch(err => console.log(`ERROR: ${err}`))
+    console.log(authContext)
   }
 
 
