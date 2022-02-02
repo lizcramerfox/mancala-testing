@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../Context/context'
 import { signIn, signOut } from '../api/auth'
 
-function AuthPage() {
+function LoginLogoutPage() {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
   
@@ -63,4 +63,4 @@ function AuthPage() {
   )
 }
 
-export default AuthPage
+export default LoginLogoutPage

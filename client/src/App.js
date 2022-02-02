@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './index.scss'
 import { AuthContext } from './Context/context'
-import AuthPage from './AuthPage/AuthPage'
+import LoginLogoutPage from './Auth/LoginLogoutPage'
 import Header from './Header/Header'
 import Home from './Home/Home'
 
@@ -33,7 +33,8 @@ function App() {
       >
         <Header />
         <Routes>
-          <Route path="/login" element={ <AuthPage /> } />
+          <Route path="/login" element={ <LoginLogoutPage /> } />
+          <Route path="/change-password" />
         </Routes>
         <Home />
       </AuthContext.Provider>
