@@ -9,16 +9,16 @@ import Home from './Home/Home'
 
 function App() {
   const [ isLoggedIn, setIsLoggedIn ] = useState(false)
-  const [ user, setUser ] = useState(null)
+  const [ user, setUser ] = useState('')
 
   const login = (user) => {
-    setIsLoggedIn(true)
+    setIsLoggedIn(!!user.id)
     setUser(user)
   }
 
   const logout = (user) => {
-    setIsLoggedIn(false)
-    setUser(null)
+    setIsLoggedIn(!user.id)
+    setUser('')
   }
 
   return (

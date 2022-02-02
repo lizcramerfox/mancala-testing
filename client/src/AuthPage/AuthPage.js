@@ -18,18 +18,17 @@ function AuthPage() {
       .catch(err => console.log(`ERROR: ${err}`))
   }
 
-  // START HERE - NOT UPDATING 'isLoggedIn' or 'user' on logout (but is logging out from API)?
   const logoutHandler = (e) => {
     e.preventDefault()
     signOut(user)
       .then(authContext.logout(user))
       .catch(err => console.log(`ERROR: ${err}`))
-    console.log(authContext)
   }
 
+  console.log(authContext)
 
   return (  
-    <>
+    <div className="auth">
       {!authContext.isLoggedIn && (
         <form className="login" onSubmit={loginHandler}>
           <label>
@@ -51,12 +50,16 @@ function AuthPage() {
           <input type="submit" value="Submit" />
         </form>
       )}
+      
       {authContext.isLoggedIn && (
-        <form className="logout" onSubmit={logoutHandler}>
-          <input type="submit" value="Logout" />
-        </form>
+        <div className="user-info">
+          <h4>Logged in as: {user.email}</h4>
+          <form className="logout" onSubmit={logoutHandler}>
+            <input type="submit" value="Logout" />
+          </form>
+        </div>
       )}
-    </>
+    </div>
   )
 }
 
