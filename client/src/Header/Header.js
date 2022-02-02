@@ -8,11 +8,9 @@ const Header = ({ user }) => (
     <nav>
       <Link to="/">Home</Link>
       <Link to="/login">Login</Link>
+      <Link to="/change-password">Change Password</Link>
       <Link to="/main">Main Page</Link>
     </nav>
-    <h4>
-      { user ?  `Welcome, ${user}!` : `Not Logged In` }
-    </h4>
   </header>
 )
 
