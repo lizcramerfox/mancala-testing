@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { AuthContext } from '../Context/context'
 import { signIn, signOut } from '../api/auth'
 
