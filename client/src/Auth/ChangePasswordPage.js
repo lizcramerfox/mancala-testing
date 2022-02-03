@@ -5,21 +5,45 @@ import { changePassword } from '../api/auth'
 export default function ChangePasswordPage() {
   const [ oldPassword, setOldPassword ] = useState('')
   const [ newPassword, setNewPassword ] = useState('')
+  const [ confirmChange, setConfirmChange ] = useState(false)
   
   const authContext = useContext(AuthContext)
   const passwords = {oldPassword, newPassword}
   const user = authContext.user
 
-  const changePasswordHandler = (e) => {
+  const requestChangeHandler = (e) => {
+    e.preventDefault()
+    setConfirmChange(true)
+  }
+
+  const cancelChangeHandler = (e) => {
+    e.preventDefault()
+    setConfirmChange(false)
+  }
+  
+  const confirmChangeHandler = (e) => {
     e.preventDefault()
 
-    changePassword(passwords, user)
-      .then(res => alert('Password Changed'))
+    changePassword(passwords, user) 
+      .then(setConfirmChange(false))
+      .then(res => alert('Your password has been changed.'))
       .catch(err => alert(err))
     }
+  
+  const confirmChangeJsx = (
+    <>
+      <p>Are you sure you want to change your password?</p>
+      <button onClick={confirmChangeHandler}>Change Password</button>
+      <button onClick={cancelChangeHandler}>Cancel</button>
+    </>
+  )
+
+  const submitNewPasswordJsx = (
+    <input type="submit" value="Submit" />
+  )
 
   const changePasswordFormJsx = (
-    <form className="change-password" onSubmit={changePasswordHandler}>
+    <form className="change-password" onSubmit={requestChangeHandler}>
       <label>
         Old Password: 
         <input 
@@ -36,7 +60,7 @@ export default function ChangePasswordPage() {
           onChange={e => setNewPassword(e.target.value)}
         />
       </label>
-      <input type="submit" value="Submit" />
+      { confirmChange ? confirmChangeJsx : submitNewPasswordJsx }
     </form>
   )
 
