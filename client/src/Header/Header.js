@@ -1,25 +1,36 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../Context/context'
 import { Link } from 'react-router-dom'
 
-const Header = ({ user }) => (
-  <header>
-    <h1>Mancala</h1>
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/sign-up">Sign Up</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/change-password">Change Password</Link>
-      <Link to="/main">Main Page</Link>
-    </nav>
-  </header>
-)
+export default function Header() {
+  const authContext = useContext(AuthContext)
 
-// const authenticatedOptionsUser = (
-//   <Fragment>
-//     <a href="#change-password">Change Password</a>
-//     <a href="#sign-out">Sign Out</a>
-//   </Fragment>
-// )
+  const unauthenticatedOptions = (
+    <>
+      <Link to='/sign-up'>Sign Up</Link>
+      <Link to='/login'>Login</Link>
+    </>
+  )
+  
+  const authenticatedOptionsUser = (
+    <>
+      <Link to='/change-password'>Change Password</Link>
+      <Link to='/login'>Logout</Link>
+    </>
+  )
+
+  return (
+    <header>
+      <h1>Mancala</h1>
+      <nav>
+        <Link to="/">Home</Link>
+        {!authContext.user && unauthenticatedOptions}
+        {authContext.user && authenticatedOptionsUser}
+      </nav>
+    </header>
+  )
+}
+
 
 // const authenticatedOptionsGame = (
 //   <Fragment>
@@ -29,12 +40,7 @@ const Header = ({ user }) => (
 //   </Fragment>
 // )
 
-// const unauthenticatedOptions = (
-//   <Fragment>
-//     <a href="#sign-up">Sign Up</a>
-//     <a href="#sign-in">Sign In</a>
-//   </Fragment>
-// )
+
 
 // const Header = ({ user }) => (
 //   <header>
@@ -50,4 +56,3 @@ const Header = ({ user }) => (
 //   </header>
 // )
 
-export default Header
