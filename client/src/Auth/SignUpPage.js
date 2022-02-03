@@ -26,7 +26,7 @@ export default function SignUpPage() {
 
   return (  
     <div className="auth">
-      {!authContext.isLoggedIn && (
+      {!authContext.user && (
         <form className="sign-up" onSubmit={signUpHandler}>
           <label>
             Email: 
@@ -56,7 +56,7 @@ export default function SignUpPage() {
         </form>
       )}
       
-      {authContext.isLoggedIn && (
+      {authContext.user && (
         <div className="user-info">
           <h4>Logged in as: {user.email}</h4>
         </div>

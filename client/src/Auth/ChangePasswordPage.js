@@ -20,11 +20,11 @@ export default function ChangePasswordPage() {
 
   return (
     <div className='auth'>
-      {!authContext.isLoggedIn && (
+      {!authContext.user && (
         <h4>You must log in to change your password</h4>
       )}
       
-      {authContext.isLoggedIn && (
+      {authContext.user && (
         <form className="change-password" onSubmit={changePasswordHandler}>
           <label>
             Old Password: 
