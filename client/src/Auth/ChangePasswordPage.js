@@ -18,33 +18,31 @@ export default function ChangePasswordPage() {
       .catch(err => alert(err))
     }
 
+  const changePasswordFormJsx = (
+    <form className="change-password" onSubmit={changePasswordHandler}>
+      <label>
+        Old Password: 
+        <input 
+          type="password"
+          value={oldPassword}
+          onChange={e => setOldPassword(e.target.value)}
+        />
+      </label>
+      <label>
+        New Password: 
+        <input 
+          type="password"
+          value={newPassword}
+          onChange={e => setNewPassword(e.target.value)}
+        />
+      </label>
+      <input type="submit" value="Submit" />
+    </form>
+  )
+
   return (
     <div className='auth'>
-      {!authContext.user && (
-        <h4>You must log in to change your password</h4>
-      )}
-      
-      {authContext.user && (
-        <form className="change-password" onSubmit={changePasswordHandler}>
-          <label>
-            Old Password: 
-            <input 
-              type="password"
-              value={oldPassword}
-              onChange={e => setOldPassword(e.target.value)}
-            />
-          </label>
-          <label>
-            New Password: 
-            <input 
-              type="password"
-              value={newPassword}
-              onChange={e => setNewPassword(e.target.value)}
-            />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-      )}
+      { user ? changePasswordFormJsx : '' }
     </div>
   )
 
