@@ -20,7 +20,7 @@ function LoginLogoutPage() {
 
   const logoutHandler = (e) => {
     e.preventDefault()
-    
+
     signOut(user)
       .then(authContext.logout(user))
       .catch(err => console.log(`ERROR: ${err}`))
@@ -41,7 +41,7 @@ function LoginLogoutPage() {
           <label>
             Password: 
             <input 
-              type="text"
+              type="password"
               value={password}
               onChange={e => setPassword(e.target.value)}
             />

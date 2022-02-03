@@ -14,13 +14,7 @@ export default function ChangePasswordPage() {
     e.preventDefault()
 
     changePassword(passwords, user)
-      .then(res => {
-        if (res) {
-          alert('Success!')
-        } else {
-          alert('Failed!')
-        }
-      })
+      .then(res => alert('Password Changed'))
       .catch(err => alert(err))
     }
 
