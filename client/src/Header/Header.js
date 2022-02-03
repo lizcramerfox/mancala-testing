@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
   const authContext = useContext(AuthContext)
+  const user = authContext.user
 
   const unauthenticatedOptions = (
     <>
@@ -24,8 +25,9 @@ export default function Header() {
       <h1>Mancala</h1>
       <nav>
         <Link to="/">Home</Link>
-        { authContext.user ? authenticatedOptionsUser : unauthenticatedOptions }
+        { user ? authenticatedOptionsUser : unauthenticatedOptions }
       </nav>
+      { user ? <h3>Welcome, {user.email}</h3> : ''}
     </header>
   )
 }
