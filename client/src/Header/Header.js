@@ -24,7 +24,7 @@ export default function Header() {
       <h1>Mancala</h1>
       <nav>
         <Link to="/">Home</Link>
-        {authContext.user ? authenticatedOptionsUser : unauthenticatedOptions}
+        { authContext.user ? authenticatedOptionsUser : unauthenticatedOptions }
       </nav>
     </header>
   )

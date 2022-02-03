@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './index.scss'
 import { AuthContext } from './Context/context'
-import AuthPage from './Auth/AuthPage'
 import SignUpPage from './Auth/SignUpPage'
 import LoginLogoutPage from './Auth/LoginLogoutPage'
 import ChangePasswordPage from './Auth/ChangePasswordPage'
@@ -36,7 +35,6 @@ function App() {
       >
         <Header />
         <Routes>
-          <Route path="/auth" element={ < AuthPage />} />
           <Route path="/sign-up" element={ <SignUpPage /> } />
           <Route path="/login" element={ <LoginLogoutPage /> } />
           <Route path="/change-password" element={ <ChangePasswordPage /> }/>
