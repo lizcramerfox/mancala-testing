@@ -6,6 +6,7 @@ const Header = ({ user }) => (
     <h1>Mancala</h1>
     <nav>
       <Link to="/">Home</Link>
+      <Link to="/sign-up">Sign Up</Link>
       <Link to="/login">Login</Link>
       <Link to="/change-password">Change Password</Link>
       <Link to="/main">Main Page</Link>

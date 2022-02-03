@@ -14,9 +14,15 @@ export default function ChangePasswordPage() {
     e.preventDefault()
 
     changePassword(passwords, user)
-      .then(alert('Your password has been changed.'))
-      .catch(alert('We were are unable to change your password. Please try again.'))
-  }
+      .then(res => {
+        if (res) {
+          alert('Success!')
+        } else {
+          alert('Failed!')
+        }
+      })
+      .catch(err => alert(err))
+    }
 
   return (
     <div className='auth'>
