@@ -20,6 +20,12 @@ export default function Header() {
     </>
   )
 
+  const userGreeting = (
+    <>
+      <h4>Welcome, {user.email}</h4>
+    </>
+  )
+
   return (
     <header>
       <h1>Mancala</h1>
@@ -27,7 +33,7 @@ export default function Header() {
         <Link to="/">Home</Link>
         { user ? authenticatedOptionsUser : unauthenticatedOptions }
       </nav>
-      { user ? <h3>Welcome, {user.email}</h3> : ''}
+      { user ? userGreeting : ''}
     </header>
   )
 }

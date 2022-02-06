@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './index.scss'
 import { AuthContext } from './Context/context'
-import SignUpPage from './Auth/SignUpPage'
-import LoginLogoutPage from './Auth/LoginLogoutPage'
-import ChangePasswordPage from './Auth/ChangePasswordPage'
+import SignUp from './Auth/SignUp'
+import LoginLogout from './Auth/LoginLogout'
+import ChangePassword from './Auth/ChangePassword'
 import Header from './Header/Header'
 import Home from './Home/Home'
 
@@ -31,9 +31,9 @@ function App() {
       >
         <Header />
         <Routes>
-          <Route path="/sign-up" element={ <SignUpPage /> } />
-          <Route path="/login" element={ <LoginLogoutPage /> } />
-          <Route path="/change-password" element={ <ChangePasswordPage /> }/>
+          <Route path="/sign-up" element={ <SignUp /> } />
+          <Route path="/login" element={ <LoginLogout /> } />
+          <Route path="/change-password" element={ <ChangePassword /> }/>
         </Routes>
         <Home />
       </AuthContext.Provider>
