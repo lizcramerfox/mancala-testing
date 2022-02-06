@@ -1,24 +1,11 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../Context/context'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import HeaderAuth from  './HeaderAuth'
 
 export default function Header() {
   const authContext = useContext(AuthContext)
   const user = authContext.user
-
-  const unauthenticatedOptions = (
-    <>
-      <Link to='/sign-up'>Sign Up</Link>
-      <Link to='/login'>Login</Link>
-    </>
-  )
-  
-  const authenticatedOptionsUser = (
-    <>
-      <Link to='/change-password'>Change Password</Link>
-      <Link to='/login'>Logout</Link>
-    </>
-  )
 
   const userGreeting = (
     <>
@@ -30,10 +17,10 @@ export default function Header() {
     <header>
       <h1>Mancala</h1>
       <nav>
-        <Link to="/">Home</Link>
-        { user ? authenticatedOptionsUser : unauthenticatedOptions }
+        <NavLink to="/">Home</NavLink>
+        <HeaderAuth />
       </nav>
-      { user ? userGreeting : ''}
+      { user ? userGreeting : '' }
     </header>
   )
 }

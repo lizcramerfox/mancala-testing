@@ -3,7 +3,8 @@ import { Routes, Route } from 'react-router-dom'
 import './index.scss'
 import { AuthContext } from './Context/context'
 import SignUp from './Auth/SignUp'
-import LoginLogout from './Auth/LoginLogout'
+import Login from './Auth/Login'
+import Logout from './Auth/Logout'
 import ChangePassword from './Auth/ChangePassword'
 import Header from './Header/Header'
 import Home from './Home/Home'
@@ -32,7 +33,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/sign-up" element={ <SignUp /> } />
-          <Route path="/login" element={ <LoginLogout /> } />
+          <Route path="/login" element={ <Login /> } />
+          <Route path="/logout" element={ <Logout /> } />
           <Route path="/change-password" element={ <ChangePassword /> }/>
         </Routes>
         <Home />
