@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../Context/context'
 import { signUp, signIn } from '../api/auth'
 
-export default function SignUpPage() {
+export default function SignUp() {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ passwordConfirmation, setPasswordConfirmation ] = useState('')

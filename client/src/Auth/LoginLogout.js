@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../Context/context'
 import { signIn, signOut } from '../api/auth'
 
-export default function LoginLogoutPage() {
+export default function LoginLogout() {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
   

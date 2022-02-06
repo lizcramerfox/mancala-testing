@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../Context/context'
 import { changePassword } from '../api/auth'
 
-export default function ChangePasswordPage() {
+export default function ChangePassword() {
   const [ oldPassword, setOldPassword ] = useState('')
   const [ newPassword, setNewPassword ] = useState('')
   const [ confirmChange, setConfirmChange ] = useState(false)
