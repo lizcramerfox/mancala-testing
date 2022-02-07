@@ -2,6 +2,10 @@
 
 $background-img: url('https://i.imgur.com/QoGVKoK.jpg');
 
+html {
+  font-size: 14pt;
+}
+
 body {
   background-image: $background-img;
   color: $red-dark;
@@ -13,6 +17,17 @@ header {
   background-color: $yellow;
   padding: 2rem;
   margin: 1rem;
+}
+
+nav {
+  
+  a {
+    text-decoration: none;
+
+    .active {
+      font-weight: 700;
+    } 
+  }
 }
 
 a {
