@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Routes, Route, Switch } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import './index.scss'
 import { AuthContext } from './Context/context'
 import SignUp from './Auth/SignUp'
@@ -19,14 +19,15 @@ function App() {
     setUser('')
   }
 
-  const routes = (
-    <Routes>
+  const authRoutes = (
+    <>
       <Route path="/auth/sign-up" element={ <SignUp /> } />
       <Route path="/auth/login" element={ <Login /> } />
       <Route path="/auth/logout" element={ <Logout /> } />
       <Route path="/auth/change-password" element={ <ChangePassword /> }/>
-    </Routes>
+    </>
   )
+  
 
   return (
     <div>
@@ -40,7 +41,9 @@ function App() {
         
         <Header />
         
-        {routes}
+        <Routes>
+          {authRoutes}
+        </Routes>
 
       </AuthContext.Provider>
     </div>

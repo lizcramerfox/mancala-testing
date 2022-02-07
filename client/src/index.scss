@@ -11,6 +11,7 @@ body {
   color: $red-dark;
   font-family: $font-body;
   margin: 3rem;
+  font-weight: normal;
 }
 
 header {
@@ -20,13 +21,15 @@ header {
 }
 
 nav {
-  
   a {
     text-decoration: none;
+    color: $orange;
 
-    .active {
-      font-weight: 700;
-    } 
+
+  }
+
+  .active-style {
+    color: white;
   }
 }
 

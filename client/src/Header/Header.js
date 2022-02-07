@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../Context/context'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default function Header() {
   const authContext = useContext(AuthContext)
@@ -8,15 +8,15 @@ export default function Header() {
 
   const unauthenticatedOptions = (
     <>
-      <Link to='/sign-up' activeClassName="active">Sign Up</Link>
-      <Link to='/login' activeClassName="active">Login</Link>
+      <NavLink to='/auth/sign-up' className={({isActive}) => (isActive ? "active-style" : 'none')}>Sign Up</NavLink>
+      <NavLink to='/auth/login' className={({isActive}) => (isActive ? "active-style" : 'none')}>Login</NavLink>
     </>
   )
   
   const authenticatedOptionsUser = (
     <>
-      <Link to='/change-password' activeClassName="active">Change Password</Link>
-      <Link to='/logout' activeClassName="active">Logout</Link >
+      <NavLink to='/auth/change-password' className={({isActive}) => (isActive ? "active-style" : 'none')}>Change Password</NavLink>
+      <NavLink to='/auth/logout' className={({isActive}) => (isActive ? "active-style" : 'none')}>Logout</NavLink >
     </>
   )
 
@@ -30,7 +30,7 @@ export default function Header() {
     <header>
       <h1>Mancala</h1>
       <nav>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
         { user ? authenticatedOptionsUser : unauthenticatedOptions }
       </nav>
       { user ? userGreeting : '' }
