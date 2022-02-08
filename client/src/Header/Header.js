@@ -8,15 +8,21 @@ export default function Header() {
 
   const unauthenticatedOptions = (
     <>
-      <NavLink to='/auth/sign-up' className={({isActive}) => (isActive ? "active-style" : 'none')}>Sign Up</NavLink>
-      <NavLink to='/auth/login' className={({isActive}) => (isActive ? "active-style" : 'none')}>Login</NavLink>
+      <NavLink to='/auth/sign-up' className={({isActive}) => (isActive ? 'active-style' : 'none')}>Sign Up</NavLink>
+      <NavLink to='/auth/login' className={({isActive}) => (isActive ? 'active-style' : 'none')}>Login</NavLink>
     </>
   )
   
   const authenticatedOptionsUser = (
     <>
-      <NavLink to='/auth/change-password' className={({isActive}) => (isActive ? "active-style" : 'none')}>Change Password</NavLink>
-      <NavLink to='/auth/logout' className={({isActive}) => (isActive ? "active-style" : 'none')}>Logout</NavLink >
+      <NavLink to='/auth/change-password' className={({isActive}) => (isActive ? 'active-style' : 'none')}>Change Password</NavLink>
+      <NavLink to='/auth/logout' className={({isActive}) => (isActive ? 'active-style' : 'none')}>Logout</NavLink >
+    </>
+  )
+
+  const gameOptions = (
+    <>
+      <NavLink to='/games' className={({isActive}) => (isActive ? 'active-style' : 'none')}>Saved Games</NavLink>
     </>
   )
 
@@ -30,8 +36,9 @@ export default function Header() {
     <header>
       <h1>Mancala</h1>
       <nav>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to='/' className={({isActive}) => (isActive ? 'active-style' : 'none')}>Home</NavLink>
         { user ? authenticatedOptionsUser : unauthenticatedOptions }
+        { user ? gameOptions : '' }
       </nav>
       { user ? userGreeting : '' }
     </header>
