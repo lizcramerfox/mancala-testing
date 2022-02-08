@@ -6,24 +6,27 @@ export default function Header() {
   const authContext = useContext(AuthContext)
   const user = authContext.user
 
+  const activeClassName = ({isActive}) => isActive ? 'active-style' : 'none'
+
+
   const unauthenticatedOptions = (
     <>
-      <NavLink to='/auth/sign-up' className={({isActive}) => (isActive ? 'active-style' : 'none')}>Sign Up</NavLink>
-      <NavLink to='/auth/login' className={({isActive}) => (isActive ? 'active-style' : 'none')}>Login</NavLink>
+      <NavLink to='/auth/sign-up' className={activeClassName}>Sign Up</NavLink>
+      <NavLink to='/auth/login' className={activeClassName}>Login</NavLink>
     </>
   )
   
   const authenticatedOptionsUser = (
     <>
-      <NavLink to='/auth/change-password' className={({isActive}) => (isActive ? 'active-style' : 'none')}>Change Password</NavLink>
-      <NavLink to='/auth/logout' className={({isActive}) => (isActive ? 'active-style' : 'none')}>Logout</NavLink >
+      <NavLink to='/auth/change-password' className={activeClassName}>Change Password</NavLink>
+      <NavLink to='/auth/logout' className={activeClassName}>Logout</NavLink >
     </>
   )
 
   const gameOptions = (
-    <>
-      <NavLink to='/games' className={({isActive}) => (isActive ? 'active-style' : 'none')}>Saved Games</NavLink>
-    </>
+    <div className='games'>
+      <NavLink to='/games' className={activeClassName}>Saved Games</NavLink>
+    </div>
   )
 
   const userGreeting = (
@@ -36,7 +39,7 @@ export default function Header() {
     <header>
       <h1>Mancala</h1>
       <nav>
-        <NavLink to='/' className={({isActive}) => (isActive ? 'active-style' : 'none')}>Home</NavLink>
+        <NavLink to='/' className={activeClassName}>Home</NavLink>
         { user ? authenticatedOptionsUser : unauthenticatedOptions }
         { user ? gameOptions : '' }
       </nav>

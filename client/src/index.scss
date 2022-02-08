@@ -18,6 +18,10 @@ header {
   background-color: $yellow;
   padding: 2rem;
   margin: 1rem;
+
+  .games {
+    padding-top: 1rem;
+  }
 }
 
 nav {
@@ -25,7 +29,9 @@ nav {
     text-decoration: none;
     color: $orange;
 
-
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .active-style {
