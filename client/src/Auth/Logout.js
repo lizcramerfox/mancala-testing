@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { AuthContext } from '../Context/authContext'
+import { AuthContext } from '../Context/context'
 import { signOut } from '../api/auth'
 
 export default function Logout() {

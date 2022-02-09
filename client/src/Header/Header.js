@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { AuthContext } from '../Context/authContext'
+import { AuthContext } from '../Context/context'
 import { NavLink } from 'react-router-dom'
 
 export default function Header() {
@@ -7,7 +7,6 @@ export default function Header() {
   const user = authContext.user
 
   const activeClassName = ({isActive}) => isActive ? 'active-style' : 'none'
-
 
   const unauthenticatedOptions = (
     <>
@@ -25,7 +24,7 @@ export default function Header() {
 
   const gameOptions = (
     <div className='games'>
-      <NavLink to='/games' className={activeClassName}>Saved Games</NavLink>
+      <NavLink to='/games' className={activeClassName}>Games</NavLink>
     </div>
   )
 

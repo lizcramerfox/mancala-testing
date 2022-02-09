@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './index.scss'
-import { AuthContext } from './Context/authContext'
+import { AuthContext } from './Context/context'
 import SignUp from './Auth/SignUp'
 import Login from './Auth/Login'
 import Logout from './Auth/Logout'
@@ -45,7 +45,6 @@ function App() {
           logout: logout
         }}
       >
-        
         <Header />
         
         <Routes>
