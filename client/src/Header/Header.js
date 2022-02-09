@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { AuthContext } from '../Context/context'
+import { AuthContext } from '../Context/authContext'
 import { NavLink } from 'react-router-dom'
 
 export default function Header() {
