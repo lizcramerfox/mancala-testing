@@ -13,14 +13,14 @@ export default function GamesHome() {
 
   console.log(games)
 
-  // const gameJsx = (
-
-  // )
+  const gamesJsx = (
+    games.map(game => <h5>{game.id}</h5>)
+  )
 
   const gamesIndexJsx = (
     <>
       <h2>Your Games</h2>
-      {/* <div>{games}</div> */}
+      <>{gamesJsx}</>
     </>
   )
   
