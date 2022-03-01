@@ -27,8 +27,7 @@ export default function Header() {
   const authenticatedOptionsUser = (
     <>
       <NavLink to='/auth/change-password' className={activeClassName}>Change Password</NavLink>
-      {/* <NavLink to='/auth/logout' className={activeClassName}>Logout</NavLink > */}
-      <button onClick={logoutHandler} className=''>Logout</button>
+      <button onClick={logoutHandler}>Logout</button>
     </>
   )
 

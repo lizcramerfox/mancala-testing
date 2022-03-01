@@ -4,7 +4,6 @@ import './index.scss'
 import { AuthContext } from './Context/context'
 import SignUp from './Auth/SignUp'
 import Login from './Auth/Login'
-import Logout from './Auth/Logout'
 import ChangePassword from './Auth/ChangePassword'
 import Header from './Header/Header'
 import GamesHome from './Games/GamesHome'
@@ -24,7 +23,6 @@ function App() {
     <>
       <Route path="/auth/sign-up" element={ <SignUp /> } />
       <Route path="/auth/login" element={ <Login /> } />
-      <Route path="/auth/logout" element={ <Logout /> } />
       <Route path="/auth/change-password" element={ <ChangePassword /> }/>
     </>
   )
