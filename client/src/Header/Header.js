@@ -1,12 +1,21 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../Context/context'
 import { NavLink } from 'react-router-dom'
+// import Logout from '../Auth/Logout'
+import { signOut } from '../api/auth'
 
 export default function Header() {
   const authContext = useContext(AuthContext)
   const user = authContext.user
 
   const activeClassName = ({isActive}) => isActive ? 'active-style' : 'none'
+
+  const logoutHandler = (e) => {
+    e.preventDefault()
+    signOut(user)
+      .then(authContext.logout(user))
+      .catch(err => console.log(`ERROR: ${err}`))
+  }
 
   const unauthenticatedOptions = (
     <>
@@ -18,7 +27,8 @@ export default function Header() {
   const authenticatedOptionsUser = (
     <>
       <NavLink to='/auth/change-password' className={activeClassName}>Change Password</NavLink>
-      <NavLink to='/auth/logout' className={activeClassName}>Logout</NavLink >
+      {/* <NavLink to='/auth/logout' className={activeClassName}>Logout</NavLink > */}
+      <button onClick={logoutHandler} className=''>Logout</button>
     </>
   )
 

@@ -25,13 +25,21 @@ header {
 }
 
 nav {
-  a {
+  a, button {
     text-decoration: none;
     color: $orange;
+    border: 0px;
+    background: none;
+    font-size: inherit;
+    font-family: inherit;
+
 
     &:hover {
       text-decoration: underline;
+      cursor: pointer;
     }
+
+
   }
 
   .active-style {
@@ -84,6 +92,31 @@ h1 {
   margin: 1rem;
 }
 
-// .user-info {
+// GAME VIEWS
+.game-index-wrapper {
+  text-align: center;
+}
 
-// }
+.game-preview {
+  display: inline-flex;
+  border: 3px solid white;
+  margin: .5rem;
+  padding: .5rem;
+
+  h4 {
+    padding: .5rem;
+    margin: 0;
+  }
+
+  .score {
+    border-top: 1px solid black;
+  }
+
+  .game-over {
+    background: $red-light;
+  }
+
+  .in-progress {
+    background: $yellow;
+  }
+}

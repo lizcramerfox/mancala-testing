@@ -7,7 +7,14 @@ export default function Login() {
   const [ password, setPassword ] = useState('')
   
   const authContext = useContext(AuthContext)
-  const loginCredentials = {email, password}
+
+  let loginCredentials 
+
+  if (window.location.hostname === "localhost") {
+    loginCredentials = { email: 'a@a', password: 'a' }
+  } else {
+    loginCredentials = { email, password }
+  }
 
   const loginHandler = (e) => {
     e.preventDefault()
