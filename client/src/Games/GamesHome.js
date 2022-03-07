@@ -1,28 +1,37 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect, Link } from 'react'
 import { AuthContext } from '../Context/context'
 import { gameIndex } from '../api/game'
+// import GamePreview from './GamePreview'
 
 export default function GamesHome() {
   const authContext = useContext(AuthContext)
   const user = authContext.user
   const [ games, setGames ] = useState([])
   
-  gameIndex(user)
+  const getGames = () => {
+    gameIndex(user)
     .then(res => setGames(res.data.games))
-  
+  }
+    
+  useEffect(() => {
+    getGames()
+  }, [])
 
-  console.log(games)
+  const GamePreview = (game) => {
+    return (
+      <>
+        <h4>{game.id}</h4>
+        
+      </>
+    )    
+  }
 
-  const gamesJsx = (
-    games.map(game => <h5>{game.id}</h5>)
-  )
+  const gamesJsx = games.map(game => GamePreview(game))
 
-  const gamesIndexJsx = (
-    <>
+  return (
+    <div className='page-wrapper'>
       <h2>Your Games</h2>
-      <>{gamesJsx}</>
-    </>
+      <div className='game-index'>{gamesJsx}</div>
+    </div>
   )
-  
-  return gamesIndexJsx
 }

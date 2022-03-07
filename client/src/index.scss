@@ -10,14 +10,14 @@ body {
   background-image: $background-img;
   color: $red-dark;
   font-family: $font-body;
-  margin: 3rem;
   font-weight: normal;
+  margin: 0;
 }
 
 header {
   background-color: $yellow;
   padding: 2rem;
-  margin: 1rem;
+  // margin: 1rem;
 
   .games {
     padding-top: 1rem;
@@ -33,13 +33,10 @@ nav {
     font-size: inherit;
     font-family: inherit;
 
-
     &:hover {
       text-decoration: underline;
       cursor: pointer;
     }
-
-
   }
 
   .active-style {
@@ -69,6 +66,10 @@ h1 {
   width: 50%;
 }
 
+.page-wrapper {
+  padding: 1rem;
+}
+
 .home {
   background-color: $red-dark;
   color: white;
@@ -93,14 +94,14 @@ h1 {
 }
 
 // GAME VIEWS
-.game-index-wrapper {
-  text-align: center;
+.game-index {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(100px, 1fr));
+  gap: 10px;
 }
 
 .game-preview {
-  display: inline-flex;
   border: 3px solid white;
-  margin: .5rem;
   padding: .5rem;
 
   h4 {
@@ -109,7 +110,7 @@ h1 {
   }
 
   .score {
-    border-top: 1px solid black;
+    border-top: 1px solid rgb(141, 115, 115);
   }
 
   .game-over {

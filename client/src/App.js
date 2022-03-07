@@ -32,7 +32,7 @@ function App() {
       <Route path="/games" element={ <GamesHome /> } />
     </>
   )
-
+  
 
   return (
     <div>
@@ -40,7 +40,7 @@ function App() {
         value={{
           user: user,
           login: login,
-          logout: logout
+          logout: logout,
         }}
       >
         <Header />
