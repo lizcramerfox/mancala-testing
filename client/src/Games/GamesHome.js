@@ -1,4 +1,5 @@
-import React, { useContext, useState, useEffect, Link } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { AuthContext } from '../Context/context'
 import { gameIndex } from '../api/game'
 // import GamePreview from './GamePreview'
@@ -19,10 +20,10 @@ export default function GamesHome() {
 
   const GamePreview = (game) => {
     return (
-      <>
+      <Link key={game.id} to={`/games/${game.id}`}>
         <h4>{game.id}</h4>
         
-      </>
+      </Link>
     )    
   }
 

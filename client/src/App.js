@@ -6,7 +6,9 @@ import SignUp from './Auth/SignUp'
 import Login from './Auth/Login'
 import ChangePassword from './Auth/ChangePassword'
 import Header from './Header/Header'
+import Home from './Home/Home'
 import GamesHome from './Games/GamesHome'
+import GameShow from './Games/GameShow'
 
 function App() {
   const [ user, setUser ] = useState('')
@@ -30,6 +32,7 @@ function App() {
   const gameRoutes = (
     <>
       <Route path="/games" element={ <GamesHome /> } />
+      <Route path="/games/:id" element={ <GameShow /> } />
     </>
   )
   
@@ -46,6 +49,7 @@ function App() {
         <Header />
         
         <Routes>
+          <Route path="/" element={< Home />} />
           {authRoutes}
           {gameRoutes}
         </Routes>
