@@ -18,8 +18,9 @@ export default function Login() {
 
   const loginHandler = (e) => {
     e.preventDefault()
+
     signIn(loginCredentials)
-      .then(res => authContext.login(res.data.user))
+      .then(res => authContext.login(res.data.user, res.data.user.token))
       .catch(err => console.log(`ERROR: ${err}`))
   }
 

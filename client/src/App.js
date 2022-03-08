@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './index.scss'
 import { AuthContext } from './Context/context'
@@ -10,16 +10,27 @@ import Home from './Home/Home'
 import GamesHome from './Games/GamesHome'
 import GameShow from './Games/GameShow'
 
+
 function App() {
   const [ user, setUser ] = useState('')
 
   const login = (user) => {
     setUser(user)
+    localStorage.setItem('userData', JSON.stringify({ user }))
   }
 
   const logout = (user) => {
     setUser('')
+    localStorage.removeItem('userData')
   }
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem('userData'))
+    
+    if (storedData && storedData.user) {
+      login(storedData.user)
+    }
+  }, [])
 
   const authRoutes = (
     <>
@@ -36,7 +47,6 @@ function App() {
     </>
   )
   
-
   return (
     <div>
       <AuthContext.Provider

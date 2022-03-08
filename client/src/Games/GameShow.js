@@ -17,12 +17,14 @@ export default function GameShow () {
 
   useEffect(() => {
     getGame()
+    console.log('game = ', Array.from(game.board.entries()))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <ul>
       <h4>Game: {game.id}</h4>
-      <p>Current Player: {game.currentPlayer}</p>
+      <p>Current Player: {game.current_player}</p>
       <p>Board: {game.board}</p>
     </ul>
   )

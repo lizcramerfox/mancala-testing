@@ -16,13 +16,13 @@ export default function GamesHome() {
     
   useEffect(() => {
     getGames()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const GamePreview = (game) => {
     return (
       <Link key={game.id} to={`/games/${game.id}`}>
         <h4>{game.id}</h4>
-        
       </Link>
     )    
   }
