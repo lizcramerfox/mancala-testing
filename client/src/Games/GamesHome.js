@@ -12,6 +12,7 @@ export default function GamesHome() {
   const getGames = () => {
     gameIndex(user)
     .then(res => setGames(res.data.games))
+    .catch(err => console.log('Error Loading Games: ', err))
   }
     
   useEffect(() => {
