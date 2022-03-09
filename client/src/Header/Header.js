@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../Context/context'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 // import Logout from '../Auth/Logout'
 import { signOut } from '../api/auth'
 
 export default function Header() {
   const authContext = useContext(AuthContext)
   const user = authContext.user
+  const navigate = useNavigate()
 
   const activeClassName = ({isActive}) => isActive ? 'active-style' : 'none'
 
@@ -14,6 +15,7 @@ export default function Header() {
     e.preventDefault()
     signOut(user)
       .then(authContext.logout(user))
+      .then(navigate('/'))
       .catch(err => console.log(`ERROR: ${err}`))
   }
 

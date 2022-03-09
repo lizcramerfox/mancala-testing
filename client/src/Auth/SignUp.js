@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/context'
 import { signUp, signIn } from '../api/auth'
 
@@ -8,6 +9,8 @@ export default function SignUp() {
   const [ passwordConfirmation, setPasswordConfirmation ] = useState('')
 
   const authContext = useContext(AuthContext)
+  const navigate = useNavigate()
+
   const signUpCredentials = {email, password, passwordConfirmation}
   const loginCredentials = {email, password}
   const user = authContext.user
@@ -21,8 +24,10 @@ export default function SignUp() {
     
     signIn(loginCredentials)
       .then(res => authContext.login(res.data.user))
+      .then(navigate('/'))
       .catch(err => console.log(`ERROR: ${err}`))
-  }
+  
+    }
 
   return (  
     <div className="auth">

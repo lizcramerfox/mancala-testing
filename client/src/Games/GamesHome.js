@@ -8,17 +8,16 @@ export default function GamesHome() {
   const authContext = useContext(AuthContext)
   const user = authContext.user
   const [ games, setGames ] = useState([])
-  
-  const getGames = () => {
-    gameIndex(user)
-    .then(res => setGames(res.data.games))
-    .catch(err => console.log('Error Loading Games: ', err))
-  }
     
   useEffect(() => {
-    getGames()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    if (!user) {
+      console.log('Loading...')
+    } else {
+      gameIndex(user)
+      .then(res => setGames(res.data.games))
+      .catch(err => console.log('Error Loading Games: ', err))
+    }
+  }, [user])
 
   const GamePreview = (game) => {
     return (

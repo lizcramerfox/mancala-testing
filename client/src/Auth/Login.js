@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/context'
 import { signIn } from '../api/auth'
 
@@ -7,6 +8,7 @@ export default function Login() {
   const [ password, setPassword ] = useState('')
   
   const authContext = useContext(AuthContext)
+  const navigate = useNavigate()
 
   let loginCredentials 
 
@@ -21,6 +23,7 @@ export default function Login() {
 
     signIn(loginCredentials)
       .then(res => authContext.login(res.data.user, res.data.user.token))
+      .then(navigate('/games'))
       .catch(err => console.log(`ERROR: ${err}`))
   }
 
