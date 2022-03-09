@@ -11,7 +11,7 @@ export default function GamesHome() {
     
   useEffect(() => {
     if (!user) {
-      console.log('Loading...')
+      return
     } else {
       gameIndex(user)
       .then(res => setGames(res.data.games))
