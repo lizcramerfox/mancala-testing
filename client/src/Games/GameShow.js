@@ -10,16 +10,14 @@ export default function GameShow () {
 
   let params = useParams()
 
-  const getGame = () => {
+  useEffect(() => {
+    if (!game) {
+      return
+    }
+    
     gameShow(user, params.id)
     .then(res => setGame(res.data.game))
-  }
-
-  useEffect(() => {
-    getGame()
-    console.log('game = ', Array.from(game.board.entries()))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [user, params.id, game])
 
   return (
     <ul>
