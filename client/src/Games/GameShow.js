@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { AuthContext } from '../Context/context'
 import { gameShow } from '../api/game'
+import GameBoard from './GameBoard'
+import Mancala from 'mancala'
 
 export default function GameShow () {
   const authContext = useContext(AuthContext)
@@ -11,19 +13,15 @@ export default function GameShow () {
   let params = useParams()
 
   useEffect(() => {
-    if (!game) {
-      return
-    }
-    
     gameShow(user, params.id)
-    .then(res => setGame(res.data.game))
-  }, [user, params.id, game])
+    .then(res => setGame(Mancala.Game.fromJSON(res.data.game)))
+  }, [user, params.id])
 
   return (
     <ul>
-      <h4>Game: {game.id}</h4>
-      <p>Current Player: {game.current_player}</p>
-      <p>Board: {game.board}</p>
+      <h4>Game: {params.id}</h4>
+      <p>Current Player: {game.currentPlayer}</p>
+      <div>Board: {<GameBoard game={game} />}</div>
     </ul>
   )
 }
