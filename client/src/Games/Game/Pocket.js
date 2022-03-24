@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 export default function Pocket({ pocket, stones }) {
-  // let pieces = []
-  
-  // for (let i = 0; i < pocket.stones.length; i++) {
-  //   pieces.push(<div className="game-piece"></div>)
-  // }
-
   let pocketID, pocketType
 
   if (pocket.isMancala) {
@@ -17,12 +11,19 @@ export default function Pocket({ pocket, stones }) {
     pocketType = 'non-mancala'
   }
 
-  const classNames = ['pocket', pocketID, pocket.player, pocketType].join(' ')
+  let pieces = []
+  for (let i = 0; i < stones; i++) {
+    pieces.push(<div className="stone"></div>)
+  }
 
+  const classNames = ['pocket', pocketID, pocket.player, pocketType].join(' ')
+  
 
   return (
     <div className={classNames}>
-      <p>{pocketID}: {stones}</p>
+      <p className='hidden'>{pocketID}: {stones}</p>
+      {/* <Pieces stones={stones} /> */}
+      <div className='stones'>{pieces}</div>
     </div>
   )
 }

@@ -15,5 +15,4 @@ export default function GameBoard ({ game }) {
       {pocketsArray}
     </div>
   )
-
 }
