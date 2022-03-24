@@ -18,11 +18,9 @@ export default function Pocket({ pocket, stones }) {
 
   const classNames = ['pocket', pocketID, pocket.player, pocketType].join(' ')
   
-
   return (
     <div className={classNames}>
       <p className='hidden'>{pocketID}: {stones}</p>
-      {/* <Pieces stones={stones} /> */}
       <div className='stones'>{pieces}</div>
     </div>
   )
