@@ -66,8 +66,54 @@ h1 {
   width: 50%;
 }
 
+.board {
+  display: grid; 
+  min-height: 255px;
+  grid-template-columns: repeat(8, 1fr); 
+  grid-template-rows: repeat(2, 1fr); 
+  gap: 5px; 
+  grid-template-areas: 
+    "BM B5 B4 B3 B2 B1 B0 AM"
+    "BM A0 A1 A2 A3 A4 A5 AM"; 
+
+  .AM { grid-area: AM }
+  .BM { grid-area: BM }
+  .A0 { grid-area: A0 }
+  .A1 { grid-area: A1 }
+  .A2 { grid-area: A2 }
+  .A3 { grid-area: A3 }
+  .A4 { grid-area: A4 }
+  .A5 { grid-area: A5 }
+  .B0 { grid-area: B0 }
+  .B1 { grid-area: B1 }
+  .B5 { grid-area: B5 }
+  .B4 { grid-area: B4 }
+  .B3 { grid-area: B3 }
+  .B2 { grid-area: B2 }
+
+  .A {
+    background-color: blue;
+  }
+
+  .B {
+    background-color: blueviolet;
+  }
+
+  .pocket {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+}
+
 .page-wrapper {
   padding: 1rem;
+}
+
+.hidden {
+  display: none;
 }
 
 .home {
@@ -121,3 +167,5 @@ h1 {
     background: $yellow;
   }
 }
+
+
