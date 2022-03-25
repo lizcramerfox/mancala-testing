@@ -16,11 +16,45 @@ body {
 
 header {
   background-color: $yellow;
-  padding: 2rem;
-  // margin: 1rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+    'title title'
+    'game-nav auth-nav';
 
+  h1 {
+    grid-area: title;
+  }
+  
   .games {
-    padding-top: 1rem;
+    padding-top: .5rem;
+  }
+
+  .game-nav {
+    grid-area: game-nav;
+  }
+
+  .auth-nav {
+    grid-area: auth-nav;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    h4 {
+      margin: 0;
+      text-justify: right;
+    }
+
+    nav {
+      align-self: end;
+      padding-top: .5rem;
+    }
+  }
+
+  .user-greeting {
+    color: blue;
   }
 }
 
@@ -64,6 +98,10 @@ h1 {
   margin: 0 auto;
   text-align: center;
   width: 50%;
+}
+
+h4 {
+  font-size: .8rem;
 }
 
 .board {
@@ -119,11 +157,7 @@ h1 {
         background-color: aqua;
       }
     }
-
-
   }
-
-
 }
 
 .page-wrapper {
@@ -140,6 +174,18 @@ h1 {
   padding: 2rem;
   margin: 1rem;
   text-align: center;
+
+  a {
+    padding: 0;
+    color: $yellow;
+  }
+}
+
+.button-homepage {
+  font-family: $font-body;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 5px;
 }
 
 .main {

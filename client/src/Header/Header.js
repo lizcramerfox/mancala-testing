@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../Context/context'
 import { NavLink, useNavigate } from 'react-router-dom'
-// import Logout from '../Auth/Logout'
 import { signOut } from '../api/auth'
 
 export default function Header() {
@@ -40,46 +39,25 @@ export default function Header() {
   )
 
   const userGreeting = (
-    <>
-      <h4>Welcome, {user.email}</h4>
-    </>
+    <div className='user-greeting'>
+      <h4>Signed in as: <span className='username'>{user.email}</span></h4>
+    </div>
   )
 
   return (
     <header>
       <h1>Mancala</h1>
-      <nav>
+      <nav className='game-nav'>
         <NavLink to='/' className={activeClassName}>Home</NavLink>
-        { user ? authenticatedOptionsUser : unauthenticatedOptions }
         { user ? gameOptions : '' }
       </nav>
-      { user ? userGreeting : '' }
+      <div className='auth-nav'>
+        { user ? userGreeting : '' }
+        <nav>
+          { user ? authenticatedOptionsUser : unauthenticatedOptions }
+        </nav>
+      </div>
     </header>
   )
 }
-
-
-// const authenticatedOptionsGame = (
-//   <Fragment>
-//     <a href="#games-create">Start New Game</a>
-//     <a href="#games">View Saved Games</a>
-//     <a href="#home">Home</a>
-//   </Fragment>
-// )
-
-
-
-// const Header = ({ user }) => (
-//   <header>
-//     <div className="title-block">
-//       <h1>Mancala</h1>
-//     </div>
-//     <div className="user-welcome"> { user ? <p> Welcome, {user.email} </p> : ''} </div>
-//     <nav>
-//       <div className="auth-links"> { user ? authenticatedOptionsUser : unauthenticatedOptions } </div>
-//       <div className="game-links"> { user ? authenticatedOptionsGame : '' } </div>
-//       <div className="auth-modal"></div>
-//     </nav>
-//   </header>
-// )
 
