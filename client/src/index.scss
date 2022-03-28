@@ -208,28 +208,32 @@ h4 {
   display: grid;
   grid-template-columns: repeat(6, minmax(100px, 1fr));
   gap: 10px;
-}
-
-.game-preview {
-  border: 3px solid white;
-  padding: .5rem;
-
-  h4 {
-    padding: .5rem;
-    margin: 0;
-  }
-
-  .score {
-    border-top: 1px solid rgb(141, 115, 115);
-  }
 
   .game-over {
     background: $red-light;
   }
-
+  
   .in-progress {
     background: $yellow;
   }
+  
+  .score {
+    display: flex;
+    flex-basis: row;
+    justify-content: space-between;   
+  }
 }
+
+a.game-preview  {
+  border: 3px solid white;
+  padding: .5rem;
+  color: $red-dark;
+  text-decoration: none;
+
+  h5 {
+    text-justify: center;
+  }
+}
+
 
 

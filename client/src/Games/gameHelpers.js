@@ -8,7 +8,7 @@ export function oppositePlayer(player) {
 }
 
 export function isWinner(game, player) {
-  if (game.isOver) {
+  if (!game.isOver) {
     return false
   }
   return mancalaStones(game, player) >= mancalaStones(game, oppositePlayer(player))
