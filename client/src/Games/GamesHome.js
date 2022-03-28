@@ -2,7 +2,9 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../Context/context'
 import { gameIndex } from '../api/game'
-// import GamePreview from './GamePreview'
+import GamePreview from './GamePreview'
+import Mancala from 'mancala'
+
 
 export default function GamesHome() {
   const authContext = useContext(AuthContext)
@@ -19,15 +21,7 @@ export default function GamesHome() {
     }
   }, [user])
 
-  const GamePreview = (game) => {
-    return (
-      <Link key={game.id} to={`/games/${game.id}`}>
-        <h4>{game.id}</h4>
-      </Link>
-    )    
-  }
-
-  const gamesJsx = games.map(game => GamePreview(game))
+  const gamesJsx = games.map(game => <GamePreview game={game} key={game.id}/>)
 
   return (
     <div className='page-wrapper'>
