@@ -1,13 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Mancala from 'mancala'
 
-export default function GamePreview({game}) {
+export default function GamePreview({game, id}) {
+  
+  let gameStatus
 
+  if (game.isOver) {
+    gameStatus = 'Game Over'
+  } else {
+    gameStatus = `Player ${game.currentPlayer}'s Turn`
+  }
 
   return (
-      <Link to={`/games/${game.id}`} className='game-preview'>
-        {game.id}
+      <Link to={`/games/${id}`} className='game-preview'>
+        {gameStatus}
       </Link>
 
   )
